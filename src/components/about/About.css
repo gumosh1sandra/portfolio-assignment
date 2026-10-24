@@ -1,0 +1,157 @@
+.about-section {
+  padding: 60px 0 80px;
+  position: relative;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.section-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: #E2EFE7;
+  color: #175436;
+  font-family: var(--font-main);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 8px 26px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 20px;
+  letter-spacing: 0.01em;
+}
+
+.section-title-burgundy {
+  font-family: var(--font-heading);
+  color: var(--heading-burgundy);
+  font-size: 2.3rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+/* Cards Grid */
+.about-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.aspiration-card {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 28px;
+  padding: 38px 40px 42px;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(228, 220, 209, 0.6);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.aspiration-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* Corner circles matching reference */
+.corner-circle {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.corner-circle-yellow {
+  background: radial-gradient(circle, #FDF0C8 0%, rgba(253, 240, 200, 0.35) 70%, transparent 100%);
+}
+
+.corner-circle-mint {
+  background: radial-gradient(circle, #D4F6E8 0%, rgba(212, 246, 232, 0.35) 70%, transparent 100%);
+}
+
+.card-top {
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.badge-yellow {
+  background-color: #FDEBC2;
+  color: #7A4305;
+}
+
+.badge-goals {
+  background-color: #FEF3C7;
+  color: #713F12;
+}
+
+.badge-icon {
+  flex-shrink: 0;
+}
+
+.card-heading {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #171A21;
+  line-height: 1.35;
+  margin-bottom: 18px;
+  letter-spacing: -0.015em;
+  position: relative;
+  z-index: 2;
+}
+
+.card-body-text {
+  font-size: 0.96rem;
+  line-height: 1.72;
+  color: #484E59;
+  font-weight: 400;
+  position: relative;
+  z-index: 2;
+}
+
+.card-bottom-divider {
+  margin-top: 28px;
+  height: 1px;
+  background-color: #F0ECE4;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .about-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .aspiration-card {
+    padding: 30px 26px;
+  }
+
+  .section-title-burgundy {
+    font-size: 1.9rem;
+  }
+}
