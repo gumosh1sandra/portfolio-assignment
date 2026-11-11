@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowUp, Heart } from "lucide-react";
+import logoG from "../../assets/logo-cubicle-g.png";
 import "./Footer.css";
 
 export default function Footer() {
@@ -12,6 +13,7 @@ export default function Footer() {
       <div className="section-container">
         <div className="footer-content">
           <div className="footer-left">
+            <img src={logoG} alt="Guma" className="footer-logo-icon" />
             <span className="footer-name">Sandra Gumoshabe</span>
             <span className="footer-divider">•</span>
             <span className="footer-tagline">Junior Developer &amp; CS Student</span>

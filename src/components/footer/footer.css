@@ -19,6 +19,17 @@
   gap: 10px;
 }
 
+.footer-logo-icon {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.footer-logo-icon:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
 .footer-name {
   font-family: var(--font-heading);
   font-weight: 700;

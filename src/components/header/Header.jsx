@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import logoImg from "../../assets/logo-horizontal.png";
 import "./Header.css";
 
 const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About Me", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
+  { label: "Home", href: "#home", bubble: "Welcome! 🌿" },
+  { label: "About Me", href: "#about", bubble: "About Sandra ✨" },
+  { label: "Skills", href: "#skills", bubble: "My Tech Stack 💻" },
+  { label: "Projects", href: "#projects", bubble: "Featured Work 🚀" },
 ];
 
 export default function Header() {
@@ -50,14 +51,78 @@ export default function Header() {
 
   return (
     <header className={`header-wrapper ${isScrolled ? "scrolled" : ""}`}>
-      <div className="navbar-pill">
-        {/* Navigation Links */}
-        <nav className="nav-links">
+      <div className="header-inner">
+        {/* Logo aligned on the left side of the navbar, outside the pill, with NO popup */}
+        <a
+          href="#home"
+          className="header-standalone-logo"
+          onClick={(e) => scrollTo(e, "#home")}
+          aria-label="Sandra Gumoshabe - Home"
+        >
+          <img
+            src={logoImg}
+            alt="Guma Logo"
+            className="standalone-logo-img"
+          />
+        </a>
+
+        {/* Centered Navbar Pill */}
+        <div className="navbar-pill">
+          {/* Navigation Links */}
+          <nav className="nav-links">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className={`nav-link ${
+                  activeSection === item.href.replace("#", "") ? "active" : ""
+                }`}
+                onClick={(e) => scrollTo(e, item.href)}
+              >
+                <span>{item.label}</span>
+                <span className="nav-bubble-popup" aria-hidden="true">
+                  <span className="bubble-pulse-dot"></span>
+                  <span>{item.bubble}</span>
+                </span>
+              </a>
+            ))}
+          </nav>
+
+          {/* CTA Button */}
+          <div className="nav-action">
+            <div className="talk-btn-wrapper">
+              <a
+                href="#contact"
+                className="talk-btn"
+                onClick={(e) => scrollTo(e, "#contact")}
+              >
+                <span>Let's Talk</span>
+                <ArrowUpRight size={17} strokeWidth={2.4} className="talk-arrow" />
+              </a>
+              <span className="nav-bubble-popup" aria-hidden="true">
+                <span className="bubble-pulse-dot"></span>
+                <span>Say Hello! 👋</span>
+              </span>
+            </div>
+          </div>
+
+          {/* Mobile Hamburger */}
+          <button
+            className="mobile-toggle"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+
+        {/* Mobile Drawer */}
+        <div className={`mobile-nav-drawer ${mobileMenuOpen ? "open" : ""}`}>
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className={`nav-link ${
+              className={`mobile-link ${
                 activeSection === item.href.replace("#", "") ? "active" : ""
               }`}
               onClick={(e) => scrollTo(e, item.href)}
@@ -65,52 +130,15 @@ export default function Header() {
               {item.label}
             </a>
           ))}
-        </nav>
-
-        {/* CTA Button */}
-        <div className="nav-action">
           <a
             href="#contact"
-            className="talk-btn"
+            className="mobile-talk-btn"
             onClick={(e) => scrollTo(e, "#contact")}
           >
             <span>Let's Talk</span>
-            <ArrowUpRight size={17} strokeWidth={2.4} className="talk-arrow" />
+            <ArrowUpRight size={18} strokeWidth={2.4} />
           </a>
         </div>
-
-        {/* Mobile Hamburger */}
-        <button
-          className="mobile-toggle"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle navigation menu"
-        >
-          {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
-
-      {/* Mobile Drawer */}
-      <div className={`mobile-nav-drawer ${mobileMenuOpen ? "open" : ""}`}>
-        {navItems.map((item) => (
-          <a
-            key={item.label}
-            href={item.href}
-            className={`mobile-link ${
-              activeSection === item.href.replace("#", "") ? "active" : ""
-            }`}
-            onClick={(e) => scrollTo(e, item.href)}
-          >
-            {item.label}
-          </a>
-        ))}
-        <a
-          href="#contact"
-          className="mobile-talk-btn"
-          onClick={(e) => scrollTo(e, "#contact")}
-        >
-          <span>Let's Talk</span>
-          <ArrowUpRight size={18} strokeWidth={2.4} />
-        </a>
       </div>
     </header>
   );
