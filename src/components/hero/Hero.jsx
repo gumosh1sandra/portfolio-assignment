@@ -13,6 +13,7 @@ import "./Hero.css";
 
 export default function Hero() {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const resumePdfUrl = `${import.meta.env.BASE_URL}Sandra_Gumoshabe_Resume.pdf`;
 
   // Typewriter animation state for "a Junior developer"
   const fullRoleText = "a Junior developer";
@@ -106,7 +107,7 @@ export default function Hero() {
             {/* Download / View Resume Action Group */}
             <div className="resume-btn-group">
               <a
-                href="/Sandra_Gumoshabe_Resume.pdf"
+                href={resumePdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary-green resume-main-btn"
@@ -189,7 +190,7 @@ export default function Hero() {
 
               <div className="resume-modal-actions">
                 <a
-                  href="/Sandra_Gumoshabe_Resume.pdf"
+                  href={resumePdfUrl}
                   download="Sandra_Gumoshabe_Resume.pdf"
                   className="btn btn-primary-green modal-action-btn"
                   title="Download Resume PDF file"
@@ -199,7 +200,7 @@ export default function Hero() {
                 </a>
 
                 <a
-                  href="/Sandra_Gumoshabe_Resume.pdf"
+                  href={resumePdfUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-outline-white modal-action-btn"
@@ -222,14 +223,14 @@ export default function Hero() {
 
             <div className="resume-modal-body">
               <iframe
-                src="/Sandra_Gumoshabe_Resume.pdf#toolbar=1"
+                src={`${resumePdfUrl}#toolbar=1`}
                 title="Sandra Gumoshabe Resume PDF"
                 className="resume-iframe"
               />
               <div className="resume-modal-footer">
                 <p>Viewing Sandra Gumoshabe's Resume</p>
                 <a
-                  href="/Sandra_Gumoshabe_Resume.pdf"
+                  href={resumePdfUrl}
                   download="Sandra_Gumoshabe_Resume.pdf"
                   className="mobile-download-link"
                 >
